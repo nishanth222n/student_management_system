@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+    .navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+  padding: 20px;
+}
+
+.navbar-brand {
+  font-size: 24px;
+  color: #fff;
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+}
+
+.nav-links li {
+  margin-right: 20px;
+}
+
+.nav-links li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.nav-links li a:hover {
+  text-decoration: underline;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.table {
+  width: 100%;
+  margin-bottom: 1rem;
+  background-color: transparent;
+  font-size: 16px;
+  color: #212529;
+}
+
+.table th,
+.table td {
+  padding: 0.75rem;
+  vertical-align: top;
+  border-top: 1px solid #dee2e6;
+}
+
+.table thead th {
+  vertical-align: bottom;
+  border-bottom: 2px solid #dee2e6;
+}
+
+.table tbody + tbody {
+  border-top: 2px solid #dee2e6;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+</style>
+</head>
+<body>
+    <nav class="navbar">
+      <a class="navbar-brand" href="#">Student Management System</a>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="{{ url_for('logout') }}">Admin Login</a></li>
+      </ul>
+    </nav>
+    <div class="container mt-5">
+        <h1 class="display-6 mt-5">All Exams</h1>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Exam ID</th>
+            <th>Exam Name</th>
+            <th>Exam Date</th>
+            <th>Course ID</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for exam in exams %}
+          <tr>
+            <td>{{ exam[0] }}</td>
+            <td>{{ exam[1] }}</td>
+            <td>{{ exam[2] }}</td>
+            <td>{{ exam[3] }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+</body>    
+</html>

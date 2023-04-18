@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+    .navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+  padding: 20px;
+}
+
+.navbar-brand {
+  font-size: 24px;
+  color: #fff;
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+}
+
+.nav-links li {
+  margin-right: 20px;
+}
+
+.nav-links li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.nav-links li a:hover {
+  text-decoration: underline;
+}
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"] {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+button[type="submit"] {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color: #0069d9;
+}
+
+
+
+</style>
+</head>
+<body>
+    <nav class="navbar">
+      <a class="navbar-brand" href="#">Student Management System</a>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <a href="{{ url_for('logout') }}">Logout</a>
+      </ul>
+    </nav>
+    <div class="container mt-5">
+        <a href="{{ url_for('allStudents') }}"  class="float-end mt-5" aria-current="page">All Students</a>
+        <a href="{{ url_for('search') }}"  class="float-end mx-3 mt-5" aria-current="page">Search</a>
+        <h2>Add a New Student</h2>
+        <form method="POST" action="{{ url_for('addStudent') }}">
+            <div class="form-group">
+                <label>Name:</label>
+                <input type="text" class="form-control" name="name" required>
+            </div>
+            <div class="form-group">
+                <label>Email:</label>
+                <input type="email" class="form-control" name="email" required>
+            </div>
+            <div class="form-group">
+                <label>Address:</label>
+                <input type="text" class="form-control" name="address">
+            </div>
+            <div class="form-group">
+                <label>Contact Number:</label>
+                <input type="text" class="form-control" name="contact_number">
+            </div>
+            <div class="form-group">
+                <label>Course Details:</label>
+                <input type="text" class="form-control" name="course_details">
+            </div>
+            <button type="submit" class="btn btn-primary">Add Student</button>
+        </form>
+    </div>
+</body>    
+</html>

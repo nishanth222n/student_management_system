@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+    .navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+  padding: 20px;
+}
+
+.navbar-brand {
+  font-size: 24px;
+  color: #fff;
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+}
+
+.nav-links li {
+  margin-right: 20px;
+}
+
+.nav-links li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.nav-links li a:hover {
+  text-decoration: underline;
+}
+
+.student{
+    width: 1190.5px;
+}
+
+.container {
+  width: 50%;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+h1 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+select, input[type="date"] {
+  width: 100%;
+  height: 40px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #0069d9;
+}
+
+.float-end {
+  float: right;
+}
+
+</style>
+</head>
+<body>
+    <nav class="navbar">
+      <a class="navbar-brand" href="#">Student Management System</a>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="{{ url_for('logout') }}">Admin Login</a></li>
+      </ul>
+    </nav>
+    <div class="container mt-5">
+        <h1>Add Attendance</h1>
+        <a href="{{ url_for('view_attendance') }}"  class="float-end mt-5" aria-current="page">Attendance Report</a>
+        <form method="POST"  action="{{ url_for('attendance') }}">
+          <div class="form-group">
+            <label for="student_id">Student:</label>
+            <select class="form-control" id="student_id" name="student_id">
+              {% for student in students %}
+              <option value="{{ student[0] }}">{{ student[1] }}</option>
+              {% endfor %}
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="course_id">Course:</label>
+            <select class="form-control" id="course_id" name="course_id">
+              {% for course in courses %}
+              <option value="{{ course[0] }}">{{ course[1] }}</option>
+              {% endfor %}
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="session_date">Session Date:</label>
+            <input type="date" class="form-control" id="session_date" name="session_date">
+          </div>
+          <div class="form-group">
+            <label for="status">Status:</label>
+            <select class="form-control" id="status" name="status">
+              <option value="Present">Present</option>
+              <option value="Absent">Absent</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+</body>    
+</html>

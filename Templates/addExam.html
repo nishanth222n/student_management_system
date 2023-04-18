@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+    .navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+  padding: 20px;
+}
+
+.navbar-brand {
+  font-size: 24px;
+  color: #fff;
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+}
+
+.nav-links li {
+  margin-right: 20px;
+}
+
+.nav-links li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.nav-links li a:hover {
+  text-decoration: underline;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="number"] {
+  display: block;
+  width: 100%;
+  padding: 8px;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+input[type="text"]:focus,
+input[type="date"]:focus,
+input[type="number"]:focus {
+  border-color: #80bdff;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.btn-primary:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+</style>
+</head>
+<body>
+    <nav class="navbar">
+      <a class="navbar-brand" href="#">Student Management System</a>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="{{ url_for('logout') }}">Admin Login</a></li>
+      </ul>
+    </nav>
+    <div class="container mt-5">
+        <a href="{{ url_for('exam') }}"  class="float-end mt-5" aria-current="page">All Exams</a>
+        <h1 class="display-6 mt-5">Add Exam</h1>
+          <form method="POST" action="{{ url_for('addExam') }}" class="mt-5">
+            <div class="form-group mt-5">
+              <label for="exam_name">Exam Name</label>
+              <input type="text" class="form-control" id="exam_name" name="exam_name" required>
+            </div>
+            <div class="form-group">
+              <label for="exam_date">Exam Date</label>
+              <input type="date" class="form-control" id="exam_date" name="exam_date" required>
+            </div>
+            <div class="form-group">
+              <label for="course_id">Course ID</label>
+              <input type="number" class="form-control" id="course_id" name="course_id" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+        </div> 
+</body>    
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+    .navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+  padding: 20px;
+}
+
+.navbar-brand {
+  font-size: 24px;
+  color: #fff;
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+}
+
+.nav-links li {
+  margin-right: 20px;
+}
+
+.nav-links li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.nav-links li a:hover {
+  text-decoration: underline;
+}
+
+.student{
+    width: 1190.5px;
+}
+</style>
+</head>
+<body>
+    <nav class="navbar">
+      <a class="navbar-brand" href="#">Student Management System</a>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="{{ url_for('addStudent') }}">Add Student</a></li>
+          
+        <li><a href="{{ url_for('attendance') }}">Attendance</a></li>
+     
+       <li><a href="{{ url_for('addCourse') }}" >Add Course</a></li>
+    
+       <li><a href="{{ url_for('addExam') }}" >Add Exam</a></li>
+     
+       <li><a href="{{ url_for('logout') }}">Logout</a></li>
+      </ul>
+    </nav>
+    <img src=" https://st4.depositphotos.com/34422958/37990/i/600/depositphotos_379900720-stock-photo-student-management-system-inscription-page.jpg" class="student" alt="no image" >
+</body>    
+</html>

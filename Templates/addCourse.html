@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+    .navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+  padding: 20px;
+}
+
+.navbar-brand {
+  font-size: 24px;
+  color: #fff;
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+}
+
+.nav-links li {
+  margin-right: 20px;
+}
+
+.nav-links li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.nav-links li a:hover {
+  text-decoration: underline;
+}
+
+.container {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+label {
+  display: block;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+input[type="text"] {
+  padding: 0.5rem;
+  font-size: 1.2rem;
+  border-radius: 0.3rem;
+  border: 1px solid #ced4da;
+}
+
+.btn-primary {
+  padding: 0.5rem 1rem;
+  font-size: 1.2rem;
+  border-radius: 0.3rem;
+  background-color: #007bff;
+  border-color: #007bff;
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+  color: #fff;
+}
+
+</style>
+</head>
+<body>
+    <nav class="navbar">
+      <a class="navbar-brand" href="#">Student Management System</a>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <a href="{{ url_for('logout') }}">Logout</a>
+      </ul>
+    </nav>
+    <!-- <img src=" https://hips.hearstapps.com/hmg-prod/images/gettyimages-107877720-1563376855.jpg" class="library" alt="no image" > -->
+    <div class="container mt-5">
+        <a href="{{ url_for('show_courses') }}"  class="float-end mt-5" aria-current="page">All Courses</a>
+        <h1 class="mt-5">Add Course</h1>
+        <form method="post" action="{{ url_for('addCourse') }}">
+          <div class="form-group">
+            <label for="course_name">Course Name:</label>
+            <input type="text" class="form-control" id="course_name" name="course_name">
+          </div>
+          <div class="form-group">
+            <label for="duration">Duration:</label>
+            <input type="text" class="form-control" id="duration" name="duration">
+          </div>
+          <div class="form-group">
+            <label for="fees">Fees:</label>
+            <input type="text" class="form-control" id="fees" name="fees">
+          </div>
+          <button type="submit" class="btn btn-primary mt-4">Add Course</button>
+        </form>
+      </div>
+</body>    
+</html>
